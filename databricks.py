@@ -49,7 +49,7 @@ name= st.text_input('Enter your question:')
 
 
 if st.button("Fire Away"):
-    llm= OpenAI(openai_api_key= os.environ["OPEN_API_KEY"],temperature=0,model_name="gpt-3.5-turbo-16k", verbose= True)
+    llm= OpenAI(openai_api_key= os.environ["OPEN_AI_KEY"],temperature=0,model_name="gpt-3.5-turbo-16k", verbose= True)
     db_chain = SQLDatabaseChain.from_llm(llm,db,verbose=True)
     response = db_chain.run(name)
     st.write(response)
